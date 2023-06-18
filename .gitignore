@@ -1,0 +1,48 @@
+# Mac OS
+.DS_Store
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# React Native
+ios/Pods/
+ios/build/
+android/.gradle/
+android/build/
+android/app/build/
+*.iml
+.gradle
+.vscode/
+
+# Expo
+.expo/
+.idea/
+
+# Android
+local.properties
+*.keystore
+
+# iOS
+Podfile.lock
+Pods/
+*.xcworkspace
+*.pbxproj
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+*.xcuserstate
+
+# Miscellaneous
+/.env
+
+# Build artifacts
+*.apk
+*.aab
+*.ipa
+*.xcarchive
+
+# Jest
+/coverage/
