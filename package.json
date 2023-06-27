@@ -21,6 +21,7 @@
     "expo-auth-session": "~4.0.3",
     "expo-crypto": "~12.2.1",
     "expo-status-bar": "~1.4.4",
+    "ipfs-http-client": "^50.1.2",
     "nativewind": "^2.0.11",
     "process": "^0.11.10",
     "react": "18.2.0",
@@ -40,7 +41,8 @@
     "rn-nodeify": "^10.3.0",
     "stream": "^0.0.2",
     "stream-browserify": "^1.0.0",
-    "tailwindcss": "^3.3.2"
+    "tailwindcss": "^3.3.2",
+    "web3.storage": "^4.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

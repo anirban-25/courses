@@ -1,1 +1,1 @@
-export const LearningPlatformContractAddress = '0xB92EFB83954C9D65Afd1c54F56bd1cA66f21DfEC'
+export const LearningPlatformContractAddress = '0xa5fbeb3a61147f47a630c7a596cbe39ea057fff2bcd87899d0e53dd4978f5bcc'
