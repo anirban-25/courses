@@ -1,4 +1,11 @@
-import { View, Text, Image, TextInput, Button } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { SelectList } from "react-native-dropdown-select-list";
 import React, { useState } from "react";
 import {
@@ -9,9 +16,19 @@ import {
   MagnifyingGlassIcon,
   AdjustmentsHorizontalIcon,
 } from "react-native-heroicons/outline";
+import {
+  Menu,
+  MenuOption,
+  MenuOptions,
+  MenuProvider,
+  MenuTrigger,
+} from "react-native-popup-menu";
+import { ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 const Navbar = () => {
+  const navigation = useNavigation();
   return (
-    <View className='mb-2'>
+    <View className="mb-2">
       <View className="pb-3 flex-row items-center mx-2 space-x-2">
         <Image
           source={{
@@ -22,9 +39,7 @@ const Navbar = () => {
         <View className="flex-1">
           <Text className="font-bold text-gray-400 text-sm">Courses</Text>
           <View>
-            <Text
-              className="font-bold text-lg"
-            >
+            <Text className="font-bold text-lg">
               Your Activities
               <ChevronDownIcon size={20} color="#00CCBB" />
             </Text>
@@ -37,8 +52,14 @@ const Navbar = () => {
           <MagnifyingGlassIcon color="gray" size={20} />
           <TextInput placeholder="start searching courses" />
         </View>
-
-        <AdjustmentsHorizontalIcon color="#00CCBB" />
+        <View>
+          <TouchableOpacity className="w-15 max-w-[75px] rounded-md px-1 items-center border-[#00CCBB] bg-[#009f9286] " onPress={()=>{
+            navigation.navigate("CourseCreator")
+          }}>
+            <Text>Become</Text>
+            <Text>a Creator</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

@@ -2,7 +2,7 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import React from "react";
 import Navbar from "../components/Navbar";
 import { SafeAreaView } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { StarIcon } from "react-native-heroicons/solid";
 import {
   GlobeAltIcon,
@@ -13,6 +13,7 @@ import {
 } from "react-native-heroicons/outline";
 import { Image } from "react-native";
 import { Button } from "react-native";
+import {useCartContext} from "../context/cart_context";
 const CourseScreen = () => {
   const {
     params: {
@@ -27,6 +28,8 @@ const CourseScreen = () => {
       description,
     },
   } = useRoute();
+  // const {addToCart}= useCartContext();
+  const navigation = useNavigation();
   return (
     <SafeAreaView className="pt-5 bg-white">
       <Navbar />
@@ -65,13 +68,48 @@ const CourseScreen = () => {
               <View className="pl-6 pb-2">
                 <Text className="pt-2 font-bold">{price} ETH only</Text>
                 <View className="w-44 pt-2 ">
-                  <Button title="Buy Now!!" color="#99ccff" />
+                  <Button
+                    title="Buy Now!!"
+                    color="#99ccff"
+                    onPress={() => {
+                      navigation.navigate("CourseBoughtScreen", {
+                        id,
+                        imgUrl,
+                        category,
+                        title,
+                        rating,
+                        language,
+                        price,
+                        teacher,
+                        description,
+                      });
+                    }}
+                  />
                 </View>
                 <Text className="pt-2 font-light text-xs">
                   Get a LifeTime Access
                 </Text>
               </View>
             </View>
+          </View>
+          <View className="w-44 mt-5 ml-5">
+            <Button
+              title="Add to WishList"
+              color="#000100"
+              onPress={() =>
+                addToCart(
+                  id,
+                  imgUrl,
+                  category,
+                  title,
+                  rating,
+                  language,
+                  price,
+                  teacher,
+                  description
+                )
+              }
+            />
           </View>
           <View className="px-3 py-5">
             <Text className="font-bold pb-2 text-base">
@@ -93,17 +131,14 @@ const CourseScreen = () => {
             </View>
           </View>
 
-          <View className='pl-3'>
-                <Text className='font-bold text-base'>Requirements</Text>
-                <Text className='text-sm'>Completely beginner friendly</Text>
-          
+          <View className="pl-3">
+            <Text className="font-bold text-base">Requirements</Text>
+            <Text className="text-sm">Completely beginner friendly</Text>
           </View>
 
-
-          <View className='py-3 pl-3'>
-                <Text className='font-bold text-base'>Course Content</Text>
+          <View className="py-3 pl-3">
+            <Text className="font-bold text-base">Course Content</Text>
           </View>
-
         </View>
       </ScrollView>
     </SafeAreaView>
