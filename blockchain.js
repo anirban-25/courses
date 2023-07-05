@@ -48,79 +48,135 @@ const [currentAccount, setCurrentAccount] = useState('');
     return null;
   }
 
-  async function createCourse(title, description, duration, requiredTokens, totalQuizzes, totalAssignments) {
+  // Register as an educator
+  async function registerAsEducator() {
     try{
-    const TaskContract = providerPresent();
-    if(TaskContract) {
-    const transaction = await TaskContract.createCourse(
-      title,
-      description,
-      duration,
-      requiredTokens,
-      totalQuizzes,
-      totalAssignments
-    ).then(res => {
+    const learningPlatformContract = providerPresent();
+    if(!learningPlatformContract) {
+      console.log('Eth provider not present');
+      return;
+    }
+    const tx = await learningPlatformContract.registerAsEducator().then
+    (res => {
       console.log(res);
     });
-  
-    await transaction.wait();
-    }
-    else {
-      console.log('Eth provider not present');
-    }
-   } catch (error) {
-      console.log(error);
-    }
-  }
-
-  // Function to enroll in a course
-  async function enrollCourse(courseId) {
-    try{
-      const TaskContract = providerPresent();
-      if(TaskContract) {
-        const transaction = await TaskContract.enrollCourse(courseId).then
-          (res => {
-            console.log(res);
-          });
-        await transaction.wait();
-      }else {
-        console.log('Eth provider not present');
-      }
+    await tx.wait();
     } catch (error) {
       console.log(error);
     }
   }
 
-  async function completeAssignment(courseId) {
+  // Register as a learner
+  async function registerAsLearner() {
     try{
-      const TaskContract = providerPresent();
-      if(TaskContract) {
-        const transaction = await TaskContract.completeAssignment(courseId).then
-          (res => {
-            console.log(res);
-          });
-        await transaction.wait(); 
-      } else {
-        console.log('Eth provider not present');
-      }
+    const learningPlatformContract = providerPresent();
+    const tx = await learningPlatformContract.registerAsLearner().then
+    (res => {
+      console.log(res);
+    });
+    await tx.wait();
     } catch (error) {
       console.log(error);
     }
   }
 
-  async function earnTokens(amount) {
+  // Create a course
+  async function createCourse(courseLink, courseDetails, courseFee) {
     try{
-      const TaskContract = providerPresent();
-      if(TaskContract) {
-        const transaction = await TaskContract.earnTokens(amount).then
-          (res => {
-            console.log(res);
-          });
-        await transaction.wait();
-      } else {
-        console.log('Eth provider not present');
-      }
+    const learningPlatformContract = providerPresent();
+    const tx = await learningPlatformContract.createCourse(courseLink, courseDetails, courseFee).then
+    (res => {
+      console.log(res);
+    });
+    await tx.wait();
     } catch (error) {
       console.log(error);
     }
   }
+
+  // Get all course addresses
+  async function getAllCourseAddresses() {
+    try{
+    const learningPlatformContract = providerPresent();
+    const addresses = await learningPlatformContract.getAllCourseAddresses();
+    return addresses;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Get course details
+  async function getCourseDetails(courseAddress) {
+    try{
+    const learningPlatformContract = providerPresent();
+    const details = await learningPlatformContract.getCourseDetails(courseAddress);
+    return details;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Get courses enrolled by a learner
+  async function getCoursesEnrolledByLearner(learnerAddress) {
+    try{
+    const learningPlatformContract = providerPresent();
+    const courseAddresses = await learningPlatformContract.getCoursesEnrolledByLearner(learnerAddress);
+    return courseAddresses;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Enroll in a course
+  async function enrollCourse(educatorAddress, courseFee) {
+    try{
+    const learningPlatformContract = providerPresent();
+    const tx = await learningPlatformContract.enrollCourse(educatorAddress, { value: courseFee }).then
+    (res => {
+      console.log(res);
+    });
+    await tx.wait();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Complete an assignment
+  async function completeAssignment(educatorAddress) {
+    try{
+    const learningPlatformContract = providerPresent();
+    const tx = await learningPlatformContract.completeAssignment(educatorAddress)
+    .then(res => {
+      console.log(res);
+    });
+    await tx.wait();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Verify course completion
+  async function verifyCourseCompletion(educatorAddress, learnerAddress) {
+    try{
+    const learningPlatformContract = providerPresent();
+    const isCompleted = await learningPlatformContract.verifyCourseCompletion(educatorAddress, learnerAddress);
+    return isCompleted;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Withdraw funds from the contract
+  async function withdrawFunds(amount) {
+    try{
+    const learningPlatformContract = providerPresent();
+    const tx = await learningPlatformContract.withdrawFunds(amount).then
+    (res => {
+      console.log(res);
+    });
+    await tx.wait();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
