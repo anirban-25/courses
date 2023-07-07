@@ -13,7 +13,7 @@ import { TouchableWithoutFeedback } from "react-native";
 const Footer = () => {
   const navigation = useNavigation();
   return (
-    <View className="py-2 ">
+    <View className="py-2 bg-black">
       <View className="flex-row justify-around">
         <TouchableWithoutFeedback
           onPress={() => {
@@ -21,24 +21,24 @@ const Footer = () => {
           }}
         >
           <View className="items-center">
-            <HomeIcon size={26} color="black" />
-            <Text className="text-xs">Home</Text>
+            <HomeIcon size={26} color="white" />
+            <Text className="text-xs text-white">Home</Text>
           </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
           onPress={() => navigation.navigate("MyLearning")}
         >
           <View className="items-center">
-            <BookOpenIcon size={26} color="black" />
-            <Text className="text-xs">My Learning</Text>
+            <BookOpenIcon size={26} color="white" />
+            <Text className="text-xs text-white">My Learning</Text>
           </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
           onPress={() => navigation.navigate("WishList")}
         >
           <View className="items-center">
-            <HeartIcon size={26} color="black" />
-            <Text className="text-xs">WishList</Text>
+            <HeartIcon size={26} color="white" />
+            <Text className="text-xs text-white">WishList</Text>
           </View>
         </TouchableWithoutFeedback>
       </View>

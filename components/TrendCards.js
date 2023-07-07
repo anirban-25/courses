@@ -21,7 +21,7 @@ const TrendCards = ({
   return (
 
 
-    <View>
+    <View className='shadow-2xl shadow-black'>
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("CourseScreen", {
@@ -46,7 +46,7 @@ const TrendCards = ({
             className="h-36 w-56 rounded"
           />
         </View>
-        <View className="px-2">
+        <View className="px-2 shadow-inner shadow-black">
           <Text className="pt-1 text-sm w-52 font-bold">{title}</Text>
           <Text className="text-xs">{teacher}</Text>
           <View className="flex-row items-center">
