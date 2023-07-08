@@ -29,7 +29,7 @@ const HomeScreen = () => {
         end={{ x: 1, y: 1 }}
         colors={["#ACC0FE", "#BFFFC7"]}
       >
-      <View className=' absolute top-40 -left-10 h-[40vh] w-[40vw] bg-[#ACC0FE] shadow-violet-200 shadow-[2px_2px_10px_rgba(0,0,0,0.5)]  origin-bottom rotate-45'></View>
+      <View className=' absolute top-40 -left-10 h-[40vh] w-[40vw] border-white border-2 bg-[#ACC0FE] shadow-violet-200 shadow-[2px_2px_10px_rgba(0,0,0,0.5)]  origin-bottom rotate-45'></View>
         <ScrollView
           contentContainerStyle={{ paddingBottom: 130, paddingLeft: 10 }}
           className="bg-black-100 relative"
@@ -51,7 +51,7 @@ const HomeScreen = () => {
           </View>
 
           <View className="absolute top-40 right-[-80]">
-            <Text className=" w-[50vw] h-[50vh] origin-bottom rotate-45 bg-[#BFFFC7] -z-10 border-black"></Text>
+            <Text className="border-2 border-white w-[50vw] h-[50vh] origin-bottom rotate-45 bg-[#BFFFC7] -z-10"></Text>
           </View>
 
           <View className="">

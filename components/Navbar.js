@@ -33,6 +33,7 @@ const Navbar = () => {
       start={{ x: 1, y: 1 }}
       end={{ x: -1, y: 1 }}
       colors={["#acc0feb1", "#acc0feb1"]}
+      className='pt-8'
     >
       <View className="my-2">
         <View className="pb-3 flex-row items-center mx-2 space-x-2">

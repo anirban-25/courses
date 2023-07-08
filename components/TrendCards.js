@@ -36,14 +36,14 @@ const TrendCards = ({
             description,
           });
         }}
-        className="bg-white mr-3 mb-3"
+        className="bg-white mr-3 mb-3 rounded-md"
       >
         <View>
           <Image
             source={{
               uri: imgUrl,
             }}
-            className="h-36 w-56 rounded"
+            className="h-36  rounded"
           />
         </View>
         <View className="px-2 shadow-inner shadow-black">

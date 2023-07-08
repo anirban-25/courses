@@ -31,9 +31,9 @@ const CourseScreen = () => {
   // const {addToCart}= useCartContext();
   const navigation = useNavigation();
   return (
-    <SafeAreaView className=" bg-white">
+    <SafeAreaView className=" bg-white flex-1">
       <Navbar />
-      <ScrollView contentContainerStyle={{ paddingBottom: 130 }}>
+      <ScrollView className='flex-1'>
         <View className="bg-[#65799B] pt-5 pb-2 pl-5">
           <View className=" pt-5 ">
             <Text className="text-[#99ccff] pb-5">{category}</Text>
@@ -59,18 +59,18 @@ const CourseScreen = () => {
           colors={["#65799B", "#b56ebc"]}
         >
           <View className="pt-5 pl-3  ">
-            <View className="items-center shadow-[#65799B] shadow-[2px_2px_10px_rgba(0,0,0,0.5)]">
-              <View className="bg-white w-56 rounded">
+            <View className="items-center shadow-[#65799B] shadow-[2px_2px_10px_rgba(0,0,0,0.5)] ">
+              <View className="bg-white w-56 rounded ">
                 <Image
                   source={{
                     uri: imgUrl,
                   }}
-                  className="h-36 w-56 rounded"
+                  className="h-36 w-56 rounded "
                 />
                 <View className="pl-6 pb-2">
                   <Text className="pt-2 font-bold">{price} ETH only</Text>
                   <View className="w-44 pt-2 ">
-                    <Button 
+                    <Button
                       title="Buy Now!!"
                       color="#b56ebc"
                       onPress={() => {
@@ -117,8 +117,8 @@ const CourseScreen = () => {
               <Text className="font-bold pb-2 text-base z-10 text-white">
                 This Course includes:
               </Text>
-              
-              <View className="border-2 w-[50vw] h-[50vh] -z-10 absolute origin-bottom rotate-45 -top-[530px] -left-44 bg-[#6145c421] border-violet-100"/>
+
+              <View className="border-2 w-[50vw] h-[50vh] -z-10 absolute origin-bottom rotate-45 -top-[530px] -left-44 bg-[#6145c421] border-violet-100" />
               <View className="relative">
                 <View className="flex-row items-center pb-1">
                   <PlayCircleIcon size={22} color="white" />
@@ -128,27 +128,36 @@ const CourseScreen = () => {
                   <QuestionMarkCircleIcon size={18} color="white" />
                   <Text className=" text-white"> 15 Quizzes</Text>
                 </View>
-                <View className="border-2 w-[50vw] h-[50vh] -z-10 absolute origin-bottom rotate-45 -top-12 -right-12 bg-[#54046c4f] border-violet-100"/>
+                <View className="border-2 w-[50vw] h-[50vh] -z-10 absolute origin-bottom rotate-45 -top-12 -right-12 bg-[#54046c4f] border-violet-100" />
                 <View className="flex-row items-center pb-1">
                   <TrophyIcon size={18} color="white" />
-                  <Text className="text-sm text-white"> Certificate on Completion</Text>
+                  <Text className="text-sm text-white">
+                    {" "}
+                    Certificate on Completion
+                  </Text>
                 </View>
               </View>
             </View>
 
             <View className="pl-3">
-              <Text className="font-bold text-base text-white">Requirements</Text>
-              <Text className="text-sm text-white">Completely beginner friendly</Text>
+              <Text className="font-bold text-base text-white">
+                Requirements
+              </Text>
+              <Text className="text-sm text-white">
+                Completely beginner friendly
+              </Text>
             </View>
 
             <View className="py-3 pl-3">
-              <Text className="font-bold text-base text-white">Course Content</Text>
+              <Text className="font-bold text-base text-white">
+                Course Content
+              </Text>
             </View>
           </View>
         </LinearGradient>
       </ScrollView>
     </SafeAreaView>
-  );
+);
 };
 
 export default CourseScreen;

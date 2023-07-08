@@ -19,7 +19,7 @@ const BestSellerCards = ({
 
   return (
     <TouchableOpacity
-      className="bg-white mr-3"
+      className="bg-white mr-3 rounded-md"
       onPress={() => {
         navigation.navigate('CourseScreen', {
           id,
@@ -34,12 +34,12 @@ const BestSellerCards = ({
         });
       }}
     >
-      <View>
+      <View className=''>
         <Image
           source={{
             uri: imgUrl,
           }}
-          className="h-36 w-56 rounded"
+          className="h-36 rounded"
         />
       </View>
       <View className="px-2">

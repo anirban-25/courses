@@ -25,12 +25,13 @@ export default function App() {
       <AuthProvider>
         <StackNavigator>
           <CartProvider>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Courses" component={CourseScreen} />
-            <Stack.Screen name="WishList" component={WishList} />
-            <Stack.Screen name="CourseScreen" component={CourseScreen} />
-            <Stack.Screen name="CourseBoughtScreen" component={CourseBoughtScreen} />
-            <Stack.Screen name="CategoryScreen" component={CategoryScreen} />
+            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="Courses" component={CourseScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="WishList" component={WishList} options={{ headerShown: false }}/>
+            <Stack.Screen name="MyLearning" component={MyLearning} options={{ headerShown: false }}/>
+            <Stack.Screen name="CourseScreen" component={CourseScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="CourseBoughtScreen" component={CourseBoughtScreen} options={{ headerShown: false }}/>
+            <Stack.Screen name="CategoryScreen" component={CategoryScreen} options={{ headerShown: false }}/>
             <Stack.Screen name="Quiz" component={Quiz} options={{headerShown: false}} />
             <Stack.Screen name="CourseCreator" component={CourseCreator} options={{ headerShown: false }} />
             <Stack.Screen name="CategoryCreator" component={CategoryCreator} options={{ headerShown: false }} />

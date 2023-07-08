@@ -11,20 +11,8 @@ const DATA = [
     title: "Web Dev",
   },
   {
-    id: "1234",
-    title: "Marketing",
-  },
-  {
     id: "12343",
     title: "Design",
-  },
-  {
-    id: "123431",
-    title: "Lifestyle",
-  },
-  {
-    id: "123432",
-    title: "Photography",
   },
   {
     id: "122343",
@@ -66,7 +54,7 @@ const Categories = ({styleMe}) => {
             renderItem={({ item }) => (
               <View className="px-1 pt-2">
                 <Pressable
-                  className="bg-gray-500 rounded-lg"
+                  className="bg-black rounded-lg"
                   onPress={() => {
                     touchMe(item);
                   }}
