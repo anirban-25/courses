@@ -35,14 +35,18 @@ const CourseCreator = () => {
 
   return (
     <View className="pt-16 bg-blue-200 h-[100%]">
-    
-    <Text className='pb-2 pl-5 pr-5 font-bold text-black text-lg'>You are just a few steps away from becoming a creator :)</Text>
+      <Text className="pb-2 pl-5 pr-5 font-bold text-black text-lg">
+        You are just a few steps away from becoming a creator :)
+      </Text>
       <LinearGradient
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
-        colors={["#5ed0fd", "#d65fbe"]}
-        className='flex-1'
+        colors={["#96dbf6", "#c98dbd"]}
+        className="flex-1"
       >
+        <View className=" absolute top-0 -left-40 h-[70vw] w-[70vw] border-white shadow-white shadow-inner bg-[#ca9ec163] origin-bottom rotate-45"></View>
+        <View className=" absolute bottom-0 -right-40 h-[70vw] w-[70vw] border-white shadow-white shadow-inner bg-[#71cdf150] origin-bottom rotate-45"></View>
+
         <View className="m-5 space-y-2">
           <Text className="text-base text-black font-semibold">
             Select the category you would like to create content of
