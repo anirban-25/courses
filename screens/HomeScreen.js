@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 import Categories from "../components/Categories";
 import { useRoute } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";
+import Icon from "react-native-vector-icons/FontAwesome";
 const HomeScreen = () => {
   // const {
   //   params: { email, titleName, lang, price, desc },
@@ -29,19 +30,26 @@ const HomeScreen = () => {
         end={{ x: 1, y: 1 }}
         colors={["#ACC0FE", "#BFFFC7"]}
       >
-      <View className=' absolute top-40 -left-10 h-[40vh] w-[40vw] border-white border-2 bg-[#ACC0FE] shadow-violet-200 shadow-[2px_2px_10px_rgba(0,0,0,0.5)]  origin-bottom rotate-45'></View>
+        <View className=" absolute top-40 -left-10 h-[40vh] w-[40vw] border-white border-2 bg-[#ACC0FE] shadow-violet-200 shadow-[2px_2px_10px_rgba(0,0,0,0.5)]  origin-bottom rotate-45"></View>
         <ScrollView
           contentContainerStyle={{ paddingBottom: 130, paddingLeft: 10 }}
           className="bg-black-100 relative"
         >
           <View className="mr-2 my-2 z-10">
             <Text className="text-base font-bold">What We Provide</Text>
-            <View className="bg-white h-32 relative">
+            <View className=" h-32 relative">
+              <View className="opacity-50 absolute top-0">
+                <Icon name="forward" size={80} color="white" />
+              </View>
+              <View className="opacity-50 absolute top-0 right-0">
+                <Icon name="backward" size={80} color="white" />
+              </View>
               <Text className="absolute px-3 pt-1 text-gray-600 ">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
-                molestiae cumque facilis voluptates, rem delectus rerum optio
-                aspernatur labore. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Minima velit voluptatum nulla?
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex
+                sequi harum ullam fuga architecto iure fugiat doloribus.
+                Sapiente distinctio velit error impedit veniam! luptas placeat
+                esse non, tenetur perferendis quo quod explicabo nam quae
+                nostrum?
               </Text>
             </View>
           </View>

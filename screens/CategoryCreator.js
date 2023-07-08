@@ -1,7 +1,8 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
-import {LinearGradient} from 'expo-linear-gradient';
+import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation, useRoute } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/FontAwesome";
 import { TextInput } from "react-native";
 
 const CategoryCreator = () => {
@@ -70,6 +71,9 @@ const CategoryCreator = () => {
           </View>
         </View>
         <View className="relative">
+        <View className=" absolute bottom-0 -left-10 h-[70vw] w-[50vw]  bg-[#acc0fe5f] shadow-white shadow-inner origin-bottom rotate-45"></View>
+        <View className=" absolute -bottom-[120px] right-[150px] h-[60vw] w-[60vw]  bg-[#acc0fe5f] shadow-white shadow-inner origin-bottom rotate-45"></View>
+        <View className=" absolute bottom-0 -right-40 h-[80vw] w-[50vw]  bg-[#acc0fe5f] shadow-white shadow-inner origin-bottom -rotate-45"></View>
           <TouchableOpacity
             className="absolute bottom-5 right-5 p-1 px-2 bg-indigo-300 shadow-lg shadow-indigo-100 rounded-md"
             onPress={() =>
@@ -82,7 +86,7 @@ const CategoryCreator = () => {
               })
             }
           >
-            <Text className='text-base'>Next</Text>
+            <Text className="text-base">Next</Text>
           </TouchableOpacity>
         </View>
       </View>
