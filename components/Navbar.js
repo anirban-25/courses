@@ -9,6 +9,8 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 import { SelectList } from "react-native-dropdown-select-list";
 import React, { useState } from "react";
+import { connectWallet, initializeMetaMask } from "../blockchain";
+import { useWalletConnect } from '@walletconnect/react-native-dapp';
 import {
   UserIcon,
   ChevronDownIcon,
@@ -26,7 +28,18 @@ import {
 } from "react-native-popup-menu";
 import { ScrollView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useEffect } from "react";
 const Navbar = () => {
+
+  const connector = useWalletConnect();
+
+  useEffect(() => {
+    const killSession = async () => {
+      return await connector.killSession();
+  }
+  killSession();
+}, [connector]);
+
   const navigation = useNavigation();
   return (
     <LinearGradient
@@ -69,6 +82,7 @@ const Navbar = () => {
               <Text>Become</Text>
               <Text>a Creator</Text>
             </TouchableOpacity>
+            <Button title="Connect MetaMask" onPress={connectWallet}/>
           </View>
         </View>
       </View>

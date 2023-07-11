@@ -3,12 +3,26 @@ import { Linking } from 'react-native';
 import BackgroundTimer from 'react-native-background-timer';
 import {ethers} from 'ethers';
 import { LearningPlatformContractAddress } from "./config";
-import LearningPlatformAbi from './utils/LearningPlatform.json'
+import {LearningPlatformAbi} from './utils/LearningPlatform.json'
 import './shim'
 import { useState } from "react";
+import { initWallet } from '@metamask/onboarding';
+import { detect } from '@metamask/detect-provider';
+import { withWalletConnect } from '@walletconnect/react-native-dapp';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 const [currentAccount, setCurrentAccount] = useState('');
+
+export default withWalletConnect(App, {
+  clientMeta: {
+    description: 'Connect with WalletConnect',
+  },
+  redirectUrl: Platform.OS === 'web' ? window.location.origin : 'yourappscheme://',
+  storageOptions: {
+    asyncStorage: AsyncStorage,
+  },
+});
 
   const MMSDK = new MetaMaskSDK({
     openDeeplink: (link) => {
@@ -21,7 +35,7 @@ const [currentAccount, setCurrentAccount] = useState('');
     },
   });
 
-  const connectWallet = async () => {
+  export const connectWallet = async () => {
     try {
       const ethereum = MMSDK.getProvider();
       if(!ethereum) {
@@ -36,6 +50,30 @@ const [currentAccount, setCurrentAccount] = useState('');
       console.log(error);
     }
   }
+
+  export const initializeMetaMask = async () => {
+    const provider = await detect();
+    if (provider) {
+      const onboarding = initWallet(provider);
+      if (onboarding) {
+        if (provider.request) {
+          const accounts = await provider.request({ method: 'eth_requestAccounts' });
+          console.log(accounts);
+          setIsUserLoggedIn(true);
+          setCurrentAccount(accounts[0]);
+        }
+        const ethersProvider = new ethers.providers.Web3Provider(provider);
+        const signer = ethersProvider.getSigner();
+        const TaskContract = new ethers.Contract(LearningPlatformContractAddress, LearningPlatformAbi.abi, signer);
+        return TaskContract;
+        // Now you can use the signer for your transactions
+        // For example, signer.sendTransaction({...})
+      }
+    } else {
+      console.log('Provider not present!');
+      return null;
+    }
+  };  
 
   const providerPresent = () => {
     const ethereum = MMSDK.getProvider();

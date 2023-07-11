@@ -11,10 +11,14 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
-    "@metamask/sdk": "^0.3.2",
+    "@metamask/detect-provider": "^2.0.0",
+    "@metamask/onboarding": "^1.0.1",
+    "@metamask/sdk": "^0.3.3",
+    "@react-native-async-storage/async-storage": "^1.19.0",
     "@react-native-picker/picker": "^2.4.10",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
+    "@walletconnect/react-native-dapp": "^1.8.0",
     "crypto": "^1.0.1",
     "ethers": "^6.6.0",
     "events": "^3.3.0",
@@ -50,7 +54,8 @@
     "web3.storage": "^4.5.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@babel/plugin-transform-private-methods": "^7.22.5"
   },
   "private": true,
   "react-native": {
@@ -67,6 +72,7 @@
     "_stream_writable": "readable-stream/writable",
     "_stream_duplex": "readable-stream/duplex",
     "_stream_passthrough": "readable-stream/passthrough",
-    "stream": "stream-browserify"
+    "crypto": false,
+    "stream": false
   }
 }
