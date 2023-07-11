@@ -35,14 +35,20 @@ const CourseCreator = () => {
 
   return (
     <View className="pt-16 bg-blue-200 h-[100%]">
-    
-    <Text className='pb-2 pl-5 pr-5 font-bold text-black text-lg'>You are just a few steps away from becoming a creator :)</Text>
+      <View className="bg-blue-200 z-10">
+        <Text className="pb-2 pl-5 pr-5 font-bold text-black text-lg">
+          You are just a few steps away from becoming a creator :)
+        </Text>
+      </View>
       <LinearGradient
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
-        colors={["#5ed0fd", "#d65fbe"]}
-        className='flex-1'
+        colors={["#96dbf6", "#c98dbd"]}
+        className="flex-1"
       >
+        <View className=" absolute top-0 -left-40 h-[70vw] w-[70vw] border-white shadow-blue-900 shadow-inner bg-[#ca9ec163] origin-bottom rotate-45"></View>
+        <View className=" absolute bottom-0 -right-40 h-[70vw] w-[70vw] border-white shadow-[#ff4edc] shadow-inner bg-[#71cdf150] origin-bottom rotate-45"></View>
+
         <View className="m-5 space-y-2">
           <Text className="text-base text-black font-semibold">
             Select the category you would like to create content of
@@ -56,16 +62,18 @@ const CourseCreator = () => {
               showsHorizontalScrollIndicator={false}
               data={DATA}
               renderItem={({ item }) => (
-                <View className="px-1 pt-2">
+                <View className="px-1 pt-3">
                   <TouchableOpacity
                     className={
-                      "rounded-md " + (pressed ? "bg-blue-500" : "bg-gray-500")
+                      "rounded-md " + (pressed ? "bg-gray-500" : "bg-gray-500")
                     }
                     onPress={() => {
                       touchMe(item);
                     }}
                   >
-                    <Text className="text-white p-1">{item.title}</Text>
+                    <Text className="text-white p-2 text-base">
+                      {item.title}
+                    </Text>
                   </TouchableOpacity>
                 </View>
               )}
